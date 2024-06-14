@@ -17,3 +17,4 @@ class Program
         PopulateDictionary();
         Console.WriteLine("Dictionary populated.");
     }
+}
