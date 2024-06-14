@@ -1,12 +1,25 @@
-using System; // Importing the System namespace for basic functionality
-using System.Collections.Generic; // Importing the namespace for using collections like Dictionary and List
+// In Module 7, we discussed different Data Types and Data Structures. For this assignment, your group will develop a dictionary.
+// Your group will choose the keys and associated values to be stored in the dictionary.
+// Tasks to Complete:
+// 1. Create a Switch Statement: Implement a switch statement that allows the user to perform the following tasks:
+// a. Populate the Dictionary: Add keys and values determined by your group.
+// b. Display Dictionary Contents: Show the contents of the dictionary using any of the three enumeration methods covered in Module 7.
+// c. Remove a Key: Remove a specified key from the dictionary.
+// d. Add a New Key and Value: Insert a new key-value pair into the dictionary.
+// e. Add a Value to an Existing Key: Append a new value to an existing key.
+// f. Sort the Keys: Sort the keys in the dictionary.
+// 2. Submission: Submit a link to your group's work stored in a GitHub repository.
+// Make sure your code is well-organized and thoroughly commented to explain each section's functionality.
+
+using System; // Importing the System namespace
+using System.Collections.Generic; // Importing the Collections namespace for using collections like Dictionary and List
 
 class Program
 {
-    // Dictionary to store MLB teams and their details
+    // Created a dictionary to store MLB teams and their details
     static Dictionary<string, List<string>> mlbTeams = new Dictionary<string, List<string>>();
 
-    // Method to populate the dictionary with MLB teams and their details
+    // Created a method to populate the dictionary with MLB teams and their details
     static void PopulateDictionary()
     {
         mlbTeams["Boston Red Sox"] = new List<string> { "Fenway Park", "David Ortiz", "Mookie Betts" };
@@ -14,28 +27,30 @@ class Program
         mlbTeams["Houston Astros"] = new List<string> { "Minute Maid Park", "Jose Altuve", "George Springer" };
     }
 
-    // Method to display the contents of the dictionary
+    // Created a method to display the contents of the dictionary
     static void DisplayDictionaryContents()
-    {
-        // Iterate through each team in the dictionary
-        foreach (var team in mlbTeams)
+{
+        // Created a collector and foreach loop to iterate through the dictionary keys
+        ICollection<string> teamKeys = mlbTeams.Keys;
+
+        foreach (var k in teamKeys)
         {
-            // Print the team name
-            Console.WriteLine($"Team: {team.Key}");
-            Console.WriteLine("Details:");
-            // Iterate through each detail of the team and print it
-            foreach (var detail in team.Value)
+            Console.WriteLine($"Team: {k}"); // Prints the team name (key)
+            Console.WriteLine("Details:"); // Prints the string 'Details:'
+            
+            // Created a foreach loop to iterate through each value of a team (key)
+            foreach (var d in mlbTeams[k])
             {
-                Console.WriteLine($"- {detail}");
+                Console.WriteLine($"- {d}"); // Prints the team details (values)
             }
-            Console.WriteLine(); // Print a blank line for better readability
+            Console.WriteLine(); // Prints a blank line for better readability
         }
     }
 
     // The start of the program
     static void Main(string[] args)
     {
-        PopulateDictionary(); // Call the method to populate the dictionary with MLB teams and their details
-        DisplayDictionaryContents(); // Call the method to display the contents of the dictionary
+        PopulateDictionary(); // Calls the method to populate the dictionary
+        DisplayDictionaryContents(); // Calls the method to display the contents of the dictionary
     }
 }
