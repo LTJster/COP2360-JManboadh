@@ -46,11 +46,25 @@ class Program
             Console.WriteLine(); // Prints a blank line for better readability
         }
     }
+    // Method to insert a new MLB team and its details
+    static void AddNewTeam()
+    {
+        Console.WriteLine("What is the name of the team?");
+        String teamName = Console.ReadLine();
+        Console.WriteLine("What is the stadium of the team?");
+        String teamStadium = Console.ReadLine();
+        Console.WriteLine("What are two players on the team?");
+        String player1 = Console.ReadLine();
+        String player2 = Console.ReadLine();
+        mlbTeams[teamName] = new List<string> {teamStadium, player1, player2};
+    }
 
     // The start of the program
     static void Main(string[] args)
     {
         PopulateDictionary(); // Calls the method to populate the dictionary
+        DisplayDictionaryContents(); // Calls the method to display the contents of the dictionary
+        AddNewTeam(); // Calls the method to prompt the user to add a new key-values
         DisplayDictionaryContents(); // Calls the method to display the contents of the dictionary
     }
 }
